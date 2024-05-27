@@ -1,5 +1,7 @@
+// React
 import React from "react";
 
+//Home Component
 function Home() {
   return (
     <div>
