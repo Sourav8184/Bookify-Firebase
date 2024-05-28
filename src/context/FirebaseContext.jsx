@@ -13,8 +13,8 @@ import {
   onAuthStateChanged,
 } from "firebase/auth";
 
-import { getFirestore, collection, addDoc } from "firebase/firestore";
-import { getStorage, ref, uploadBytes } from "firebase/storage";
+import { getFirestore, collection, addDoc, getDocs } from "firebase/firestore";
+import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 
 const firebaseAuth = getAuth(app);
 const googleProvider = new GoogleAuthProvider();
@@ -77,6 +77,15 @@ const FirebaseProvider = (props) => {
       userPhotoURL: user.photoURL,
     });
   };
+  //List all Books
+  const listAllBooks = () => {
+    return getDocs(collection(fireStore, "books"));
+  };
+
+  // getDownload image URL:
+  const getImageURL = (path) => {
+    return getDownloadURL(ref(Storage, path));
+  };
 
   return (
     <FirebaseContext.Provider
@@ -86,6 +95,8 @@ const FirebaseProvider = (props) => {
         signinUserWithEmailAndPassword,
         signinWithGoogle,
         handleCreateNewListing,
+        listAllBooks,
+        getImageURL,
       }}>
       {props.children}
     </FirebaseContext.Provider>
