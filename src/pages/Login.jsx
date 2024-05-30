@@ -15,13 +15,14 @@ function Login() {
   const [password, setPassword] = useState("");
 
   const navigate = useNavigate();
-  useEffect(() => {
-    // if user Logged in then navigate to Home
-    navigate("/");
-  });
 
   const firebase = useFirebase();
-  console.log(firebase);
+  // console.log(firebase);
+
+  useEffect(() => {
+    // if user Login then Navigate to Home
+    if (firebase.isLoggedin) navigate("/");
+  }, [firebase, navigate]);
 
   //Signin method
   const handleSubmit = async (e) => {

@@ -1,6 +1,5 @@
 // React
 import React from "react";
-import { NavLink } from "react-router-dom";
 
 // BootStrap
 import Container from "react-bootstrap/Container";
@@ -23,8 +22,8 @@ function MyNavBar() {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
             <Nav.Link href="/">Home</Nav.Link>
-
             <Nav.Link href="/book/list">Add Listing</Nav.Link>
+            <Nav.Link href="/book/orders">Orders</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>

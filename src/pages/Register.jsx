@@ -16,13 +16,13 @@ function Register() {
 
   const navigate = useNavigate();
 
+  const firebase = useFirebase();
+  // console.log(firebase);
+
   useEffect(() => {
     // if user Register then Navigate to Home
-    navigate("/");
-  });
-
-  const firebase = useFirebase();
-  console.log(firebase);
+    if (firebase.isLoggedin) navigate("/");
+  }, [firebase, navigate]);
 
   // Signup method
   const handleSubmit = async (e) => {

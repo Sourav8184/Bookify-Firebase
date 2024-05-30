@@ -12,6 +12,9 @@ import Register from "./pages/Register";
 import Login from "./pages/Login";
 import Home from "./pages/Home";
 import List from "./pages/List";
+import Details from "./pages/Details";
+import ViewOrder from "./pages/ViewOrder";
+import ViewOrderDetails from "./pages/ViewOrderDetails";
 
 function App() {
   return (
@@ -22,6 +25,9 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
         <Route path="/book/list" element={<List />} />
+        <Route path="/book/view/:bookId" element={<Details />} />
+        <Route path="/book/orders" element={<ViewOrder />} />
+        <Route path="/books/orders/:bookId" element={<ViewOrderDetails />} />
       </Routes>
     </div>
   );
